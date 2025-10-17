@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Card with Current Time & Date</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+  <div class="card" data-testid="profile-card">
+    <div class="avatar" data-testid="avatar">
+      <!-- Replace this with your image -->
+      <img src="Mildred.jpeg" alt="Profile Picture">
+    </div>
+    <div class="name" data-testid="name">Mildred Josiah</div>
+    <div class="role" data-testid="role">An award-winning Business Development Officer and Software Engineering graduate passionate about tech innovation and growth strategy.</div>
+
+<div class="social-links" data-testid="social-links">
+      <div class="label">My Social Links</div>
+     
+        <p><a data-testid="test-user-social-twitter" href="https://twitter.com/Mildred-Josiah3" target="_blank" rel="noopener noreferrer">Twitter</a></p>
+        <p><a data-testid="test-user-social-linkedin" href="http://linkedin.com/in/mildred-josiah-36bb6a225" target="_blank" rel="Mildred Josia">LinkedIn</a></p>
+        <p><a data-testid="test-user-social-github" href="https://github.com/Milli-bae" target="_blank" rel="Mildred Josia">GitHub</a></p>
+      
+    </div> <br>
+
+    <div class="hobbies" data-testid="hobbies">
+      <div class="label">My Hobbies</div>
+     
+        <p style="color: rgb(0, 0, 0);">Traveling, Reading, Movies</p>
+        
+    </div> <br>
+
+    <div class="dislikes" data-testid="dislikes">
+      <div class="label">Dislikes</div>
+     
+        <p style="color: rgb(0, 0, 0);">Poverty, Liars, Witches</p>
+        
+    </div> <br>
+
+    <div class="time-box" data-testid="time-box">
+      <div class="label">Current Local Time</div>
+      <div class="time" id="currentTime" data-testid="current-time">--:--:--</div>
+      <div class="date" id="currentDate" data-testid="current-date">Loading date...</div>
+      <div class="day" id="currentDay" data-testid="current-day">Loading day...</div>
+      <div class="timezone" id="timezone" data-testid="timezone">Loading timezone...</div>
+    </div>
+    </div>
+     <script src="script.js"></script>
+    </body>
+</html>
