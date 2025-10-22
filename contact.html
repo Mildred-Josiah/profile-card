@@ -23,11 +23,18 @@
       <small id="error-subject" data-testid="test-contact-error-subject" class="error"></small>
 
       <label for="message">*Message</label>
-      <textarea id="message" data-testid="test-contact-message" aria-describedby="error-message"></textarea>
+     <input type="text" id="message" required minlength="10" data-testid="message" aria-describedby="error-subject">
       <small id="error-message" data-testid="test-contact-error-message" class="error"></small>
 
-      <button type="submit" data-testid="test-contact-submit">Submit</button>
-      <p id="success" data-testid="test-contact-success" class="success" hidden>✅ Message sent successfully!</p>
+<button type="submit">Submit</button>
+
+      <!-- Success message -->
+      <p id="successMessage" class="success" hidden>
+        ✅ Form submitted successfully!
+      </p>
+
+      <!-- <button type="submit" data-testid="test-contact-submit">Submit</button>
+      <p id="successMessage" data-testid="test-contact-success" class="success" hidden>✅ Message sent successfully!</p> -->
     </form>
 <br>
     <div class="links">
