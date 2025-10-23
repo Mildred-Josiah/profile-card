@@ -23,7 +23,7 @@
       <small id="error-subject" data-testid="test-contact-error-subject" class="error"></small>
 
       <label for="message">*Message</label>
-     <input type="text" id="message" required minlength="10" data-testid="message" aria-describedby="error-subject">
+     <input type="textarea" id="message" required minlength="10" data-testid="message" aria-describedby="error-message">
       <small id="error-message" data-testid="test-contact-error-message" class="error"></small>
 
 <button type="submit">Submit</button>
@@ -43,6 +43,83 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
+  
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  // Error fields
+  const errorName = document.getElementById("error-name");
+  const errorEmail = document.getElementById("error-email");
+  const errorSubject = document.getElementById("error-subject");
+  const errorMessage = document.getElementById("error-message");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Stop form from reloading
+
+    // Get input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Reset all error messages
+    errorName.textContent = "";
+    errorEmail.textContent = "";
+    errorSubject.textContent = "";
+    errorMessage.textContent = "";
+    successMessage.hidden = true;
+
+    let valid = true;
+
+    // ✅ Name validation
+    if (name === "") {
+      errorName.textContent = "Full name is required.";
+      valid = false;
+    }
+
+    // ✅ Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") {
+      errorEmail.textContent = "Email is required.";
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      errorEmail.textContent = "Please enter a valid email address.";
+      valid = false;
+    }
+
+    // ✅ Subject validation
+    if (subject === "") {
+      errorSubject.textContent = "Subject is required.";
+      valid = false;
+    }
+
+    // ✅ Message validation (at least 10 characters)
+    if (message === "") {
+      errorMessage.textContent = "Message is required.";
+      valid = false;
+    } else if (message.length < 10) {
+      errorMessage.textContent = "Message must be at least 10 characters long.";
+      valid = false;
+    }
+
+    // ✅ If all fields are valid → show success message
+    if (valid) {
+      successMessage.hidden = false;
+      form.reset();
+
+      // Hide success message after 3 seconds
+      setTimeout(() => {
+        successMessage.hidden = true;
+      }, 3000);
+    }
+  });
+});
+
+
+</script>
+
 </html>
